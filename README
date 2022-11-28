@@ -1,0 +1,20 @@
+Add these JAVA_HOME and osxcross PATH changes to ~/.bash_profile:
+>>>
+# User specific environment and startup programs
+export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:/bin/java::")
+
+# osxcross, built and ready to use
+PATH=$PATH:$JAVA_HOME/bin:/home/pwh/osxcross/target/bin
+<<<
+
+For osxcross tarballs, download the following MacOSX SDK's:
+wget https://github.com/phracker/MacOSX-SDKs/releases/download/11.3/MacOSX10.13.sdk.tar.xz
+Darwin 17, matches Config.scala
+
+and https://github.com/phracker/MacOSX-SDKs/releases/download/11.3/MacOSX10.11.sdk.tar.xz
+Darwin 15
+
+If you get this - Just run MPPatch in Admin mode once, will fix issue permenantly. Known Windows10+ registry bug.
+WARNING: Could not open/create prefs root node Software\JavaSoft\Prefs at root 0x80000002. Windows RegCreateKeyEx(...) returned error code 5.
+
+
