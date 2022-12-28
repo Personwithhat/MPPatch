@@ -40,17 +40,21 @@
 local function mungeName(name)
     return "\19"..name.."\8"
 end
+
+-- Lua vs LuaJIT edge cases
+-- See http://lua-users.org/lists/lua-l/2012-07/msg00548.html
+local hexHack = (0xFFFFFFFF+1)
 local function decode32(v)
     if v == nil then return nil end
     if v < 0 then
-        return 0x100000000 + v
+        return hexHack + v
     else
         return v
     end
 end
 local function encode32(v)
     if v > 0x7FFFFFFF then
-        return v - 0x100000000
+        return v - hexHack
     else
         return v
     end
