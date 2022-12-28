@@ -86,7 +86,8 @@ class SettingsDialog(val locale: Locale, main: MainFrame) extends FrameBase[JDia
       enableMultiplayerPatch.setSelected(Preferences.enableMultiplayerPatch.value)
 
       enableLuaJIT = options.gridCheckRow(3, "luajit")
-      enableLuaJIT.setSelected(Preferences.enableLuaJIT.value)
+      enableLuaJIT.setSelected(false);//Preferences.enableLuaJIT.value)
+      enableLuaJIT.setEnabled(false); // DISABLING for now
 
       enableDebug = options.gridCheckRow(4, "debug")
       enableDebug.setSelected(Preferences.enableDebug.value)
